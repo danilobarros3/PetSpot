@@ -4,7 +4,7 @@ import { Checkbox } from "../components/ui/checkbox";
 import { Input } from "../components/ui/input";
 export function Register() {
   return (
-    <div className="w-full bg-orange-200 flex flex-col justify-center items-center rounded-3xl">
+    <div className="w-full bg-[#FFE9D8] flex flex-col justify-center items-center rounded-3xl p-4">
       <div className="grid grid-cols-2 w-full">
         <div className="flex flex-col justify-center items-center p-4">
           <p className="font-semibold text-7xl mt-10 mb-6">Registre-se</p>

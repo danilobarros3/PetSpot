@@ -9,10 +9,10 @@ export function Header() {
       <p>Sobre Produtos</p>
       <p>Pet Care</p>
       <p>Contato</p>
-      <div className="bg-orange-400 p-2 rounded-full">
+      <div className="bg-[#FCA04B] p-2 rounded-full">
       <p className="text-lg">Login</p>
       </div>
-      <div className="bg-orange-400 p-2 rounded-full">
+      <div className="bg-[#FCA04B] p-2 rounded-full">
       <p>Registre-se</p>
       </div>
       </div>
