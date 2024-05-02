@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import logoPaws from "../assets/paws 1.png"
+import logoPaws from "../assets/paws.png"
 export function Header() {
   const navigate = useNavigate()
   const redirectLogin = () => {

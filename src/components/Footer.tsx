@@ -1,6 +1,6 @@
-import facebookImg from "../assets/fb 3.png"
-import tiktokImg from "../assets/tiktok 3.png"
-import instagramImg from "../assets/insta 3.png"
+import facebookImg from "../assets/iconFacebook.png"
+import tiktokImg from "../assets/iconTiktok.png"
+import instagramImg from "../assets/iconInstagram.png"
 export function Footer(){
   return(
     <>

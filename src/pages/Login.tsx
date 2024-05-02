@@ -1,9 +1,8 @@
-import imageLogin from "../assets/pet 1.png";
+import imageLogin from "../assets/imageLogin.png";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import logoGoogle from "../assets/iconGoogle.png";
 import { Header } from "../components/Header";
-import { Footer } from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 export function Login() {
   const navigate = useNavigate();
@@ -16,13 +15,13 @@ export function Login() {
   return (
     <>
       <Header />
-      <div className="w-full bg-[#4d84aa] flex flex-col justify-center items-center rounded-3xl">
+      <div className="w-full bg-primary flex flex-col justify-center items-center rounded-3xl">
         <div className="grid grid-cols-2 w-full">
           <div className="flex flex-col justify-center items-center p-4">
             <p className="font-semibold text-7xl mt-5 mb-6">PetSpot</p>
             <p>Unificando ainda mais você e seu Pet!</p>
             <div className="w-[70%] mt-10 rounded-2xl p-2">
-              <Button className="border-2 rounded-2xl text-black border-white bg-[#3b6a8e] p-4 mt-4  py-5 w-full">
+              <Button className="border-2 rounded-2xl text-black border-white bg-white p-4 mt-4  py-5 w-full">
                 <div className="flex items-center gap-3">
                   <img src={logoGoogle} width={30} alt="Google" />
                   <p>Login pelo Google</p>
@@ -31,12 +30,12 @@ export function Login() {
               <Input
                 type="text"
                 placeholder="E-mail"
-                className="border-2 rounded-2xl text-red bg-[#3b6a8e]  p-4 mt-4  py-5"
+                className="border-2 rounded-2xl text-red bg-white  p-4 mt-4  py-5"
               />
               <Input
                 type="password"
                 placeholder="Senha"
-                className="border-2 rounded-2xl text-black p-4 mt-4 bg-[#3b6a8e]  py-5"
+                className="border-2 rounded-2xl text-black p-4 mt-4 bg-white  py-5"
               />
               <div className="flex justify-end">
                 <p
@@ -66,7 +65,6 @@ export function Login() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }
