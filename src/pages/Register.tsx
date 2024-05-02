@@ -1,9 +1,13 @@
 import imageRegister from "../assets/registerImage.png";
+import { Footer } from "../components/Footer";
+import { Header } from "../components/Header";
 import { Button } from "../components/ui/button";
 import { Checkbox } from "../components/ui/checkbox";
 import { Input } from "../components/ui/input";
 export function Register() {
   return (
+    <>
+    <Header/>
     <div className="w-full bg-[#FFE9D8] flex flex-col justify-center items-center rounded-3xl p-4">
       <div className="grid grid-cols-2 w-full">
         <div className="flex flex-col justify-center items-center p-4">
@@ -51,5 +55,7 @@ export function Register() {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }
