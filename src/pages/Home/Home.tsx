@@ -1,19 +1,13 @@
-import imageHome from "../assets/imageHome.png";
-import service1 from "../assets/service1.png";
-import imageDanilo from "../assets/imageDanilo.jpeg";
-import imageAnrry from "../assets/imageAnrry.jpeg";
-import imageBruno from "../assets/imageBruno.jpeg";
-import imageJeser from "../assets/imageJeser.jpeg";
-import imageLincoln from "../assets/imageLincoln.jpeg";
-import { Header } from "../components/Header";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "../components/ui/carousel";
-import { GetInTouch } from "../components/GetInTouch";
+import imageHome from "../../assets/imageHome.png";
+import service1 from "../../assets/service1.png";
+import imageDanilo from "../../assets/imageDanilo.jpeg";
+import imageAnrry from "../../assets/imageAnrry.jpeg";
+import imageBruno from "../../assets/imageBruno.jpeg";
+import imageJeser from "../../assets/imageJeser.jpeg";
+import imageLincoln from "../../assets/imageLincoln.jpeg";
+import { Header } from "../../components/Header";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../../components/ui/carousel";
+
 
 export function Home() {
   return (

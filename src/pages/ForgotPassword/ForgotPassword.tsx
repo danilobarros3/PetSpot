@@ -1,9 +1,9 @@
-import { Button } from "../components/ui/button";
-import { Input } from "../components/ui/input";
-import logo from "../assets/imageForgotPassword.png";
+import logo from "../../assets/imageForgotPassword.png";
 import { useNavigate } from "react-router-dom";
 import { FormEvent } from "react";
 import { toast } from "sonner";
+import { Input } from "../../components/ui/input";
+import { Button } from "../../components/ui/button";
 
 export function ForgotPassword() {
   const navigate = useNavigate();

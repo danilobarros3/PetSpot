@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Login } from "../pages/Login";
-import { Register } from "../pages/Register";
-import { ForgotPassword } from "../pages/ForgotPassword";
-import { RegisterPet } from "../pages/RegisterPet";
-import { Home } from "../pages/Home";
+import { Home } from "../pages/Home/Home";
+import { Login } from "../pages/Login/Login";
+import { Register } from "../pages/Register/Register";
+import { ForgotPassword } from "../pages/ForgotPassword/ForgotPassword";
+import { RegisterPet } from "../pages/RegisterPet/RegisterPet";
 
 const Router = () => {
   return (

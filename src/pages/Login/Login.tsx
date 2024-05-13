@@ -1,14 +1,12 @@
-import imageLogin from "../assets/imageLogin.png";
-import { Button } from "../components/ui/button";
-import { Input } from "../components/ui/input";
-import logoGoogle from "../assets/iconGoogle.png";
-import { Header } from "../components/Header";
+import imageLogin from "../../assets/imageLogin.png";
+import logoGoogle from "../../assets/iconGoogle.png";
 import { useNavigate } from "react-router-dom";
+import { Header } from "../../components/Header";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
+import { FormLogin } from "./components/FormLogin";
 export function Login() {
   const navigate = useNavigate();
-  function handleForgotPassword() {
-    navigate("/esqueceu-a-senha");
-  }
   function handleRegister() {
     navigate("/cadastro");
   }
@@ -27,27 +25,7 @@ export function Login() {
                   <p>Login pelo Google</p>
                 </div>
               </Button>
-              <Input
-                type="text"
-                placeholder="E-mail"
-                className="border-2 rounded-2xl text-red bg-white  p-4 mt-4  py-5"
-              />
-              <Input
-                type="password"
-                placeholder="Senha"
-                className="border-2 rounded-2xl text-black p-4 mt-4 bg-white  py-5"
-              />
-              <div className="flex justify-end">
-                <p
-                  className="mt-2 mb-5 cursor-pointer underline"
-                  onClick={handleForgotPassword}
-                >
-                  Esqueceu sua senha?
-                </p>
-              </div>
-              <Button className="w-full flex justify-center border-2 rounded-3xl mt-4 bg-black text-white py-6">
-                <p className="text-lg">Login</p>
-              </Button>
+              <FormLogin />
               <p
                 className="mt-10 flex justify-center cursor-pointer underline"
                 onClick={handleRegister}
