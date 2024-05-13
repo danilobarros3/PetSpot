@@ -9,26 +9,19 @@ import {
 } from "../../../schema/loginUserForm.schema";
 import { ILoginInfo } from "../../../types/loginInfo";
 import { useState } from "react";
-import axios from "axios";
+import api from "../../../services";
 
 export function FormLogin() {
-  const [loading, setLoading] = useState(false);
+  const [_, setLoading] = useState(false);
   const navigate = useNavigate();
   function handleForgotPassword() {
     navigate("/esqueceu-a-senha");
   }
-  const post = async (url: any, data: any) => {
-    try {
-      const response = await axios.post(url, data);
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
-  };
+  
   const handleFormLoginSubmit = async (values: ILoginInfo) => {
     setLoading(true);
     try {
-      const { data } = await post("http://localhost:8080/login", values);
+      const { data } = await api.post("http://localhost:8080/login", values);
       toast.success(data.message);
       setTimeout(() => {
         window.location.reload();

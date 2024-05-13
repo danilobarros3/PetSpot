@@ -3,7 +3,6 @@ import logoGoogle from "../../assets/iconGoogle.png";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { Button } from "../../components/ui/button";
-import { Input } from "../../components/ui/input";
 import { FormLogin } from "./components/FormLogin";
 export function Login() {
   const navigate = useNavigate();

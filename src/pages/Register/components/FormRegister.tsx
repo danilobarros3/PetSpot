@@ -8,23 +8,15 @@ import {
 } from "../../../schema/registerUserForm.schema";
 import { IRegisterInfo } from "../../../types/registerInfo";
 import { useState } from "react";
-import axios from "axios";
 import { Checkbox } from "../../../components/ui/checkbox";
+import api from "../../../services";
 
 export function FormRegister() {
-  const [loading, setLoading] = useState(false);
-  const post = async (url: any, data: any) => {
-    try {
-      const response = await axios.post(url, data);
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
-  };
+  const [_, setLoading] = useState(false);
   const handleFormRegisterSubmit = async (values: IRegisterInfo) => {
     setLoading(true);
     try {
-      const { data } = await post("http://localhost:8080/register", values);
+      const { data } = await api.post("http://localhost:8080/register", values);
       toast.success(data.message);
       setTimeout(() => {
         window.location.reload();
