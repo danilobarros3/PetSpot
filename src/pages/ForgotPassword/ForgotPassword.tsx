@@ -16,8 +16,8 @@ export function ForgotPassword() {
     }, 2000);
   }
 
-  function handleReturnHome() {
-    navigate("/");
+  function handleReturnLogin() {
+    navigate("/login");
   }
 
   return (
@@ -38,7 +38,7 @@ export function ForgotPassword() {
               </div>
               <span
                 className="text-bg-primary text-base cursor-pointer underline text-end w-full mt-2"
-                onClick={handleReturnHome}
+                onClick={handleReturnLogin}
               >
                 Acessar minha conta
               </span>
