@@ -17,7 +17,7 @@ export function Header() {
       <img src={logoPaws} alt="Logo da Pata" className="cursor-pointer" onClick={redirectHome}/>
       <p>Sobre nós</p>
       <p>Nosso serviços</p>
-      <p>Sobre Produtos</p>
+      <p>Produtos</p>
       <p>Pet Care</p>
       <p>Contato</p>
       <div className="p-2 rounded-full">

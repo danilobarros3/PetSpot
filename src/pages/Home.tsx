@@ -1,6 +1,9 @@
 import imageHome from "../assets/imageHome.png";
 import service1 from "../assets/service1.png";
 import imageDanilo from "../assets/imageDanilo.jpeg";
+import imageAnrry from "../assets/imageAnrry.jpeg";
+import imageBruno from "../assets/imageBruno.jpeg";
+import imageJeser from "../assets/imageJeser.jpeg";
 import imageLincoln from "../assets/imageLincoln.jpeg";
 import { Header } from "../components/Header";
 import {
@@ -10,6 +13,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../components/ui/carousel";
+import { GetInTouch } from "../components/GetInTouch";
 
 export function Home() {
   return (
@@ -127,7 +131,29 @@ export function Home() {
                 </div>
               </CarouselItem>
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <img src={imageDanilo} alt="" />
+                <img src={imageAnrry} alt="" />
+                <div className="bg-white p-2">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Reiciendis eveniet, architecto dolores eaque dolor laborum
+                    voluptate officia repellendus nobis sed accusamus maiores
+                    magnam, officiis repellat omnis eos, enim quod ea.
+                  </p>
+                </div>
+              </CarouselItem>
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <img src={imageBruno} alt="" />
+                <div className="bg-white p-2">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Reiciendis eveniet, architecto dolores eaque dolor laborum
+                    voluptate officia repellendus nobis sed accusamus maiores
+                    magnam, officiis repellat omnis eos, enim quod ea.
+                  </p>
+                </div>
+              </CarouselItem>
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <img src={imageJeser} alt="" />
                 <div className="bg-white p-2">
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -138,8 +164,11 @@ export function Home() {
                 </div>
               </CarouselItem>
             </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
           </Carousel>
         </div>
+          {/* <GetInTouch/> */}
       </div>
     </>
   );
