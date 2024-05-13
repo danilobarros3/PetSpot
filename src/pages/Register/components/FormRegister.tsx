@@ -47,21 +47,21 @@ export function FormRegister() {
         <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
           <div className="mb-4 w-full">
             <label
-              htmlFor="name"
+              htmlFor="nome"
               className="block text-sm font-medium text-gray-700 w-full"
             >
               Nome
             </label>
             <Input
               type="text"
-              id="name"
-              name="name"
-              value={values.name}
+              id="nome"
+              name="nome"
+              value={values.nome}
               onChange={handleChange}
               className="mt-1 p-2 w-full border rounded-md"
             />
             <ErrorMessage
-              name="name"
+              name="nome"
               component="p"
               className="text-red-500 text-xs italic"
             />
@@ -69,21 +69,21 @@ export function FormRegister() {
 
           <div className="mb-4 w-full">
             <label
-              htmlFor="lastname"
+              htmlFor="sobrenome"
               className="block text-sm font-medium text-gray-700 w-full"
             >
               Sobrenome
             </label>
             <Input
-              type="lastname"
-              id="lastname"
-              value={values.lastname}
+              type="sobrenome"
+              id="sobrenome"
+              value={values.sobrenome}
               onChange={handleChange}
-              name="lastname"
+              name="sobrenome"
               className="mt-1 p-2 w-full border rounded-md"
             />
             <ErrorMessage
-              name="lastname"
+              name="sobrenome"
               component="p"
               className="text-red-500 text-xs italic"
             />
@@ -114,21 +114,21 @@ export function FormRegister() {
         <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
           <div className="mb-4 w-full">
             <label
-              htmlFor="password"
+              htmlFor="senha"
               className="block text-sm font-medium text-gray-700 w-full"
             >
               Senha
             </label>
             <Input
               type="password"
-              id="password"
-              value={values.password}
+              id="senha"
+              value={values.senha}
               onChange={handleChange}
-              name="password"
+              name="senha"
               className="mt-1 p-2 w-full border rounded-md"
             />
             <ErrorMessage
-              name="password"
+              name="senha"
               component="p"
               className="text-red-500 text-xs italic"
             />
@@ -137,20 +137,20 @@ export function FormRegister() {
         <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
           <div className="mb-4 w-full">
             <label
-              htmlFor="date"
+              htmlFor="dataDeNascimento"
               className="block text-sm font-medium text-gray-700 w-full"
             >
               Data de nascimento
             </label>
             <Input
               type="date"
-              id="date"
+              id="dataDeNascimento"
               onChange={handleChange}
-              name="date"
+              name="dataDeNascimento"
               className="mt-1 p-2 w-full border rounded-md"
             />
             <ErrorMessage
-              name="date"
+              name="dataDeNascimento"
               component="p"
               className="text-red-500 text-xs italic"
             />

@@ -75,21 +75,21 @@ export function FormLogin() {
           <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
             <div className="mb-4 w-full">
               <label
-                htmlFor="password"
+                htmlFor="senha"
                 className="block text-sm font-medium text-gray-700 w-full"
               >
                 Senha
               </label>
               <Input
                 type="password"
-                id="password"
+                id="senha"
                 onChange={handleChange}
-                value={values.password}
-                name="password"
+                value={values.senha}
+                name="senha"
                 className="mt-1 p-2 w-full border rounded-md"
               />
               <ErrorMessage
-                name="password"
+                name="senha"
                 component="p"
                 className="text-red-500 text-xs italic"
               />

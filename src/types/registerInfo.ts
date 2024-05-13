@@ -1,6 +1,7 @@
 export interface IRegisterInfo {
   email: string;
-  password: string;
-  name: string;
-  lastname: string;
+  senha: string;
+  nome: string;
+  sobrenome: string;
+  dataDeNascimento: string;
 }

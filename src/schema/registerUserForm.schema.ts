@@ -2,14 +2,16 @@ import * as yup from "yup";
 
 export const registerFormSchema = yup.object().shape({
   email: yup.string().email("Email inválido").required("Email é obrigatório"),
-  password: yup.string().required("Senha é obrigatória"),
-  name: yup.string().required("Nome é obrigatório"),
-  lastname: yup.string().required("Sobrenome é obrigatório"),
+  senha: yup.string().required("Senha é obrigatória"),
+  nome: yup.string().required("Nome é obrigatório"),
+  sobrenome: yup.string().required("Sobrenome é obrigatório"),
+  dataDeNascimento: yup.string().required("Data de nascimento é obrigatória"),
 });
 
 export const initialRegisterFormValues = {
   email: "",
-  password: "",
-  name: "",
-  lastname: "",
+  senha: "",
+  nome: "",
+  sobrenome: "",
+  dataDeNascimento: "",
 }
