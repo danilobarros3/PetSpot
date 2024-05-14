@@ -28,7 +28,7 @@ export function Login() {
       const { data } = await api.post("/login", values);
       toast.success(data.message);
       signin(data.token, data.name, data.email);
-      navigate("/");
+      navigate("/cadastre-seu-pet");
     } catch (error) {
       console.error(error);
       toast.error("Erro ao realizar o login. Tente novamente.");
