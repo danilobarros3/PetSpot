@@ -146,6 +146,26 @@ export function FormRegister() {
               className="text-red-500 text-xs italic"
             />
           </div>
+          <div className="mb-4 w-full">
+            <label
+              htmlFor="usuario"
+              className="block text-sm font-medium text-gray-700 w-full"
+            >
+              Usuário
+            </label>
+            <Input
+              type="text"
+              id="usuario"
+              onChange={handleChange}
+              name="usuario"
+              className="mt-1 p-2 w-full border rounded-md"
+            />
+            <ErrorMessage
+              name="usuario"
+              component="p"
+              className="text-red-500 text-xs italic"
+            />
+          </div>
         </div>
         <div className="flex justify-between mb-2 mt-2 p-2">
           <Checkbox className="text-black mb-6 size-4 mt-1 border-2 border-black rounded" />
