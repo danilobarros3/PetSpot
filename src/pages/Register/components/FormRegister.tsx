@@ -18,9 +18,6 @@ export function FormRegister() {
     try {
       const { data } = await api.post("http://localhost:8080/register", values);
       toast.success(data.message);
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
     } catch (error) {
       console.error(error);
     } finally {
@@ -141,6 +138,7 @@ export function FormRegister() {
               name="dataDeNascimento"
               className="mt-1 p-2 w-full border rounded-md"
             />
+            {/* <DatePickerDemo/> */}
             <ErrorMessage
               name="dataDeNascimento"
               component="p"

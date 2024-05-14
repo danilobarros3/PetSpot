@@ -23,9 +23,6 @@ export function FormLogin() {
     try {
       const { data } = await api.post("http://localhost:8080/login", values);
       toast.success(data.message);
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
     } catch (error) {
       console.error(error);
     } finally {
