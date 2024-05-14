@@ -6,6 +6,7 @@ export const registerFormSchema = yup.object().shape({
   nome: yup.string().required("Nome é obrigatório"),
   sobrenome: yup.string().required("Sobrenome é obrigatório"),
   dataDeNascimento: yup.string().required("Data de nascimento é obrigatória"),
+  usuario: yup.string().required("Usuário é obrigatório"),
 });
 
 export const initialRegisterFormValues = {
@@ -14,4 +15,5 @@ export const initialRegisterFormValues = {
   nome: "",
   sobrenome: "",
   dataDeNascimento: "",
+  usuario: "",
 }

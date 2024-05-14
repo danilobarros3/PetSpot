@@ -4,4 +4,5 @@ export interface IRegisterInfo {
   nome: string;
   sobrenome: string;
   dataDeNascimento: string;
+  usuario: string;
 }
