@@ -3,12 +3,40 @@ import logoGoogle from "../../assets/iconGoogle.png";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { Button } from "../../components/ui/button";
-import { FormLogin } from "./components/FormLogin";
+import { useAuth } from "../../hooks/useAuth";
+import { useState } from "react";
+import { toast } from "sonner";
+import api from "../../services";
+import { ILoginInfo } from "../../types/loginInfo";
+import { ErrorMessage, Form, Formik } from "formik";
+import { Input } from "../../components/ui/input";
+import { initialLoginFormValues, loginUserSchema } from "../../schema/loginUserForm.schema";
 export function Login() {
   const navigate = useNavigate();
+  const { signin } = useAuth();
+  const [_, setLoading] = useState(false);
+  function handleForgotPassword() {
+    navigate("/esqueceu-a-senha");
+  }
   function handleRegister() {
     navigate("/cadastro");
   }
+
+  const handleFormLoginSubmit = async (values: ILoginInfo) => {
+    setLoading(true);
+    try {
+      const { data } = await api.post("/login", values);
+      toast.success(data.message);
+      signin(data.token, data.name, data.email);
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+      toast.error("Erro ao realizar o login. Tente novamente.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <Header />
@@ -24,7 +52,76 @@ export function Login() {
                   <p>Login pelo Google</p>
                 </div>
               </Button>
-              <FormLogin />
+              <div>
+              <Formik
+                initialValues={initialLoginFormValues}
+                validationSchema={loginUserSchema}
+                onSubmit={handleFormLoginSubmit}
+              >
+                {({ values, handleChange }) => (
+                  <Form className="w-full">
+                    <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
+                      <div className="mb-4 w-full">
+                        <label
+                          htmlFor="email"
+                          className="block text-sm font-medium text-gray-700 w-full"
+                        >
+                          E-mail
+                        </label>
+                        <Input
+                          type="text"
+                          id="email"
+                          onChange={handleChange}
+                          value={values.email}
+                          name="email"
+                          className="mt-1 p-2 w-full border rounded-md"
+                        />
+                        <ErrorMessage
+                          name="email"
+                          component="p"
+                          className="text-red-500 text-xs italic"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
+                      <div className="mb-4 w-full">
+                        <label
+                          htmlFor="senha"
+                          className="block text-sm font-medium text-gray-700 w-full"
+                        >
+                          Senha
+                        </label>
+                        <Input
+                          type="password"
+                          id="senha"
+                          onChange={handleChange}
+                          value={values.senha}
+                          name="senha"
+                          className="mt-1 p-2 w-full border rounded-md"
+                        />
+                        <ErrorMessage
+                          name="senha"
+                          component="p"
+                          className="text-red-500 text-xs italic"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex justify-end">
+                      <p
+                        className="mt-2 mb-5 cursor-pointer underline"
+                        onClick={handleForgotPassword}
+                      >
+                        Esqueceu sua senha?
+                      </p>
+                    </div>
+                    <Button className="w-full flex justify-center border-2 rounded-3xl mt-4 bg-black text-white py-6">
+                      <p className="text-lg">Login</p>
+                    </Button>
+                  </Form>
+                )}
+              </Formik>
+              </div>
               <p
                 className="mt-10 flex justify-center cursor-pointer underline"
                 onClick={handleRegister}
