@@ -17,7 +17,7 @@ export function FormRegister() {
     setLoading(true);
     try {
       const { data } = await api.post("/register", values);
-      toast.success("Usuário registrado com sucesso");
+      toast.success(data.message);
     } catch (error) {
       console.error(error);
       toast.error("Erro ao se cadastrar. Tente novamente.");
