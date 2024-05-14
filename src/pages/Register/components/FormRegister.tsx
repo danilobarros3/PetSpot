@@ -16,10 +16,11 @@ export function FormRegister() {
   const handleFormRegisterSubmit = async (values: IRegisterInfo) => {
     setLoading(true);
     try {
-      const { data } = await api.post("http://localhost:8080/register", values);
+      const { data } = await api.post("/register", values);
       toast.success(data.message);
     } catch (error) {
       console.error(error);
+      toast.error("Erro ao se cadastrar. Tente novamente.");
     } finally {
       setLoading(false);
     }

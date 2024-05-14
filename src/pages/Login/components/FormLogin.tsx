@@ -17,14 +17,15 @@ export function FormLogin() {
   function handleForgotPassword() {
     navigate("/esqueceu-a-senha");
   }
-  
+
   const handleFormLoginSubmit = async (values: ILoginInfo) => {
     setLoading(true);
     try {
-      const { data } = await api.post("http://localhost:8080/login", values);
+      const { data } = await api.post("/login", values);
       toast.success(data.message);
     } catch (error) {
       console.error(error);
+      toast.error("Erro ao realizar o login. Tente novamente.");
     } finally {
       setLoading(false);
     }
