@@ -11,9 +11,10 @@ import { useState } from "react";
 import { Checkbox } from "../../../components/ui/checkbox";
 import api from "../../../services";
 import { catchError } from "../../../utils/catchError";
+import { LoaderCircle } from "lucide-react";
 
 export function FormRegister() {
-  const [_, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const handleFormRegisterSubmit = async (values: IRegisterInfo) => {
     setLoading(true);
     try {
@@ -180,6 +181,7 @@ export function FormRegister() {
             type="submit"
             className="w-full flex justify-center border-2 rounded-3xl mt-4 bg-black text-white py-6"
           >
+            {loading && <LoaderCircle className="animate-spin" />}
             <p className="text-lg">Registre-se</p>
           </Button>
         </Form>

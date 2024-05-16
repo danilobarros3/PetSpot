@@ -11,10 +11,11 @@ import { ILoginInfo } from "../../types/loginInfo";
 import { ErrorMessage, Form, Formik } from "formik";
 import { Input } from "../../components/ui/input";
 import { initialLoginFormValues, loginUserSchema } from "../../schema/loginUserForm.schema";
+import { LoaderCircle } from "lucide-react";
 export function Login() {
   const navigate = useNavigate();
   const { signin } = useAuth();
-  const [_, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   function handleForgotPassword() {
     navigate("/esqueceu-a-senha");
   }
@@ -116,6 +117,7 @@ export function Login() {
                       </p>
                     </div>
                     <Button className="w-full flex justify-center border-2 rounded-3xl mt-4 bg-black text-white py-6">
+                    {loading && <LoaderCircle className="animate-spin" />}
                       <p className="text-lg">Login</p>
                     </Button>
                   </Form>
