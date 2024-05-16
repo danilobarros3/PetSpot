@@ -20,7 +20,7 @@ export function FormRegister() {
       toast.success(data.message);
     } catch (error) {
       console.error(error);
-      toast.error("Erro ao se cadastrar. Tente novamente.");
+      ("Erro ao se cadastrar. Tente novamente.");
     } finally {
       setLoading(false);
     }
