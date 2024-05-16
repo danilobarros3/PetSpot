@@ -10,6 +10,7 @@ import { IRegisterInfo } from "../../../types/registerInfo";
 import { useState } from "react";
 import { Checkbox } from "../../../components/ui/checkbox";
 import api from "../../../services";
+import { catchError } from "../../../utils/catchError";
 
 export function FormRegister() {
   const [_, setLoading] = useState(false);
@@ -20,7 +21,7 @@ export function FormRegister() {
       toast.success(data.message);
     } catch (error) {
       console.error(error);
-      ("Erro ao se cadastrar. Tente novamente.");
+      catchError(error, "Erro ao se cadastrar. Tente novamente.");
     } finally {
       setLoading(false);
     }
