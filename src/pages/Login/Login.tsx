@@ -48,7 +48,7 @@ export function Login() {
       <div className="w-full bg-primary justify-center items-center rounded-3xl">
         <div className="grid md:grid-cols-2">
           <div className="flex flex-col justify-center items-center p-4">
-            <p className="font-semibold text-7xl mt-5 mb-6">PetSpot</p>
+            <p className="font-semibold md:text-7xl text-5xl mt-5 mb-6">PetSpot</p>
             <p>Unificando ainda mais você e seu Pet!</p>
             <div className="w-full md:w-[70%] mt-10 rounded-2xl p-2">
               <Button className="border-2 rounded-2xl text-black border-white bg-white p-4 mt-4 mb-5 py-5 w-full">

@@ -12,7 +12,7 @@ export function RegisterPet() {
       <div className="w-full bg-primary flex flex-col justify-center items-center rounded-3xl p-4">
         <div className="grid md:grid-cols-2 w-full">
           <div className="flex flex-col justify-center items-center p-4">
-            <p className="font-semibold text-7xl mt-10 mb-6">
+            <p className="font-semibold text-4xl md:text-6xl mt-10 mb-2">
               Cadastre seu Pet
             </p>
             <div className="w-full md:w-[70%] mt-10 rounded-2xl p-2">
