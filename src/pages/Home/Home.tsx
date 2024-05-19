@@ -14,7 +14,7 @@ export function Home() {
     <>
       <Header />
       <div className="w-full bg-primary flex flex-col justify-center items-center rounded-3xl shadow-2xl">
-        <div className="flex w-full">
+        <div className="grid md:flex w-full">
           <div className="flex flex-col justify-center items-center p-4">
             <p className="font-semibold text-5xl mb-6">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.

@@ -10,12 +10,12 @@ export function RegisterPet() {
     <>
       <Header />
       <div className="w-full bg-primary flex flex-col justify-center items-center rounded-3xl p-4">
-        <div className="grid grid-cols-2 w-full">
+        <div className="grid md:grid-cols-2 w-full">
           <div className="flex flex-col justify-center items-center p-4">
             <p className="font-semibold text-7xl mt-10 mb-6">
               Cadastre seu Pet
             </p>
-            <div className="w-[70%] mt-10 rounded-2xl p-2">
+            <div className="w-full md:w-[70%] mt-10 rounded-2xl p-2">
               <div className="flex gap-5">
                 <Input
                   type="text"
@@ -69,7 +69,7 @@ export function RegisterPet() {
             </div>
           </div>
           <div className="flex justify-center items-center">
-            <img src={registerPet} alt="Login" className="w-full max-h-full" />
+            <img src={registerPet} alt="Login" className="w-full max-h-full md:block hidden" />
           </div>
         </div>
       </div>

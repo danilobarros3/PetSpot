@@ -12,8 +12,8 @@ export function Header() {
     navigate("/");
   }
   return (
-    <div className="rounded-3xl bg-white border-[1px] border-gray-100 shadow-lg p-4 mb-10 mt-10">
-      <div className="flex gap-10 text-center items-center">
+    <div className="rounded-3xl w-full bg-white border-[1px] border-gray-100 shadow-lg p-4 mb-10 mt-10">
+      <div className="flex gap-10 w-full text-center items-center">
       <img src={logoPaws} alt="Logo da Pata" className="cursor-pointer" onClick={redirectHome}/>
       <p>Sobre nós</p>
       <p>Nosso serviços</p>

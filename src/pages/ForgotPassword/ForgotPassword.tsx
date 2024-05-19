@@ -53,7 +53,7 @@ export function ForgotPassword() {
             </div>
           </form>
           <div className="flex-1 md:w-1/2 flex items-center justify-center">
-            <img src={logo} className="max-w-[400px]" />
+            <img src={logo} className="max-w-[400px] md:block hidden" />
           </div>
         </div>
       </div>

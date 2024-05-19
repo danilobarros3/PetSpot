@@ -17,6 +17,7 @@ export function FormRegister() {
   const [loading, setLoading] = useState(false);
   const handleFormRegisterSubmit = async (values: IRegisterInfo) => {
     setLoading(true);
+    setTimeout(async () => {
     try {
       const { data } = await api.post("/register", values);
       toast.success(data.message);
@@ -26,6 +27,7 @@ export function FormRegister() {
     } finally {
       setLoading(false);
     }
+  }, 1000);
   };
 
   return (
@@ -81,51 +83,73 @@ export function FormRegister() {
               />
             </div>
           </div>
-
-          <div className="mb-4 w-full">
-            <label
-              htmlFor="usuario"
-              className="block text-sm font-medium text-gray-700 w-full"
-            >
-              Usuário
-            </label>
-            <Input
-              type="text"
-              id="usuario"
-              onChange={handleChange}
-              value={values.usuario}
-              name="usuario"
-              className="mt-1 p-2 w-full border rounded-md"
-            />
-            <ErrorMessage
-              name="usuario"
-              component="p"
-              className="text-red-500 text-xs italic"
-            />
+          <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
+            <div className="mb-4 w-full">
+              <label
+                htmlFor="usuario"
+                className="block text-sm font-medium text-gray-700 w-full"
+              >
+                Usuário
+              </label>
+              <Input
+                type="text"
+                id="usuario"
+                onChange={handleChange}
+                value={values.usuario}
+                name="usuario"
+                className="mt-1 p-2 w-full border rounded-md"
+              />
+              <ErrorMessage
+                name="usuario"
+                component="p"
+                className="text-red-500 text-xs italic"
+              />
+            </div>
+            <div className="mb-4 w-full">
+              <label
+                htmlFor="dataDeNascimento"
+                className="block text-sm font-medium text-gray-700 w-full"
+              >
+                Data de nascimento
+              </label>
+              <Input
+                type="date"
+                id="dataDeNascimento"
+                onChange={handleChange}
+                name="dataDeNascimento"
+                className="mt-1 p-2 w-full border rounded-md"
+              />
+              <ErrorMessage
+                name="dataDeNascimento"
+                component="p"
+                className="text-red-500 text-xs italic"
+              />
+            </div>
           </div>
           <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
-          <div className="mb-4 w-full">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700 w-full"
-            >
-              E-mail
-            </label>
-            <Input
-              type="email"
-              id="email"
-              value={values.email}
-              onChange={handleChange}
-              name="email"
-              className="mt-1 p-2 w-full border rounded-md"
-            />
-            <ErrorMessage
-              name="email"
-              component="p"
-              className="text-red-500 text-xs italic"
-            />
-          </div>
-          <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
+            <div className="mb-4 w-full">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 w-full"
+              >
+                E-mail
+              </label>
+              <Input
+                type="email"
+                id="email"
+                value={values.email}
+                onChange={handleChange}
+                name="email"
+                className="mt-1 p-2 w-full border rounded-md"
+              />
+              <ErrorMessage
+                name="email"
+                component="p"
+                className="text-red-500 text-xs italic"
+              />
+            </div>
+            </div>
+            <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
             <div className="mb-4 w-full">
               <label
                 htmlFor="senha"
@@ -147,30 +171,6 @@ export function FormRegister() {
                 className="text-red-500 text-xs italic"
               />
             </div>
-            </div>
-          </div>
-          <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
-            <div className="mb-4 w-full">
-              <label
-                htmlFor="dataDeNascimento"
-                className="block text-sm font-medium text-gray-700 w-full"
-              >
-                Data de nascimento
-              </label>
-              <Input
-                type="date"
-                id="dataDeNascimento"
-                onChange={handleChange}
-                name="dataDeNascimento"
-                className="mt-1 p-2 w-full border rounded-md"
-              />
-              {/* <DatePickerDemo/> */}
-              <ErrorMessage
-                name="dataDeNascimento"
-                component="p"
-                className="text-red-500 text-xs italic"
-              />
-            </div>
           </div>
           <div className="flex justify-between mb-2 mt-2 p-2">
             <Checkbox className="text-black mb-6 size-4 mt-1 border-2 border-black rounded" />
@@ -179,7 +179,7 @@ export function FormRegister() {
 
           <Button
             type="submit"
-            className="w-full flex justify-center border-2 rounded-3xl mt-4 bg-black text-white py-6"
+            className="w-full flex justify-center border-2 rounded-3xl mt-4 bg-black text-white py-6 gap-2"
           >
             {loading && <LoaderCircle className="animate-spin" />}
             <p className="text-lg">Registre-se</p>

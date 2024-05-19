@@ -12,6 +12,8 @@ import { ErrorMessage, Form, Formik } from "formik";
 import { Input } from "../../components/ui/input";
 import { initialLoginFormValues, loginUserSchema } from "../../schema/loginUserForm.schema";
 import { LoaderCircle } from "lucide-react";
+import { catchError } from "../../utils/catchError";
+import { Footer } from "../../components/Footer";
 export function Login() {
   const navigate = useNavigate();
   const { signin } = useAuth();
@@ -25,6 +27,7 @@ export function Login() {
 
   const handleFormLoginSubmit = async (values: ILoginInfo) => {
     setLoading(true);
+    setTimeout(async () => {
     try {
       const { data } = await api.post("/login", values);
       toast.success(data.message);
@@ -32,22 +35,23 @@ export function Login() {
       navigate("/cadastre-seu-pet");
     } catch (error) {
       console.error(error);
-      toast.error("Erro ao realizar o login. Tente novamente.");
+      catchError(error, "Erro ao realizar o login. Tente novamente.");
     } finally {
       setLoading(false);
     }
+  }, 1000);
   };
 
   return (
     <>
       <Header />
-      <div className="w-full bg-primary flex flex-col justify-center items-center rounded-3xl">
-        <div className="grid grid-cols-2 w-full">
+      <div className="w-full bg-primary justify-center items-center rounded-3xl">
+        <div className="grid md:grid-cols-2">
           <div className="flex flex-col justify-center items-center p-4">
             <p className="font-semibold text-7xl mt-5 mb-6">PetSpot</p>
             <p>Unificando ainda mais você e seu Pet!</p>
-            <div className="w-[70%] mt-10 rounded-2xl p-2">
-              <Button className="border-2 rounded-2xl text-black border-white bg-white p-4 mt-4  py-5 w-full">
+            <div className="w-full md:w-[70%] mt-10 rounded-2xl p-2">
+              <Button className="border-2 rounded-2xl text-black border-white bg-white p-4 mt-4 mb-5 py-5 w-full">
                 <div className="flex items-center gap-3">
                   <img src={logoGoogle} width={30} alt="Google" />
                   <p>Login pelo Google</p>
@@ -116,7 +120,7 @@ export function Login() {
                         Esqueceu sua senha?
                       </p>
                     </div>
-                    <Button className="w-full flex justify-center border-2 rounded-3xl mt-4 bg-black text-white py-6">
+                    <Button className="w-full flex gap-2 justify-center border-2 rounded-3xl mt-4 bg-black text-white py-6">
                     {loading && <LoaderCircle className="animate-spin" />}
                       <p className="text-lg">Login</p>
                     </Button>
@@ -132,15 +136,16 @@ export function Login() {
               </p>
             </div>
           </div>
-          <div className="flex justify-center items-center">
+          <div className="grid md:flex justify-center items-center">
             <img
               src={imageLogin}
               alt="Login"
-              className="w-full max-h-full rounded-4xl"
+              className="w-full max-h-full rounded-4xl hidden md:block"
             />
           </div>
         </div>
       </div>
+        <Footer/>
     </>
   );
 }
