@@ -172,7 +172,7 @@ export function FormRegister() {
               />
             </div>
           </div>
-          <div className="flex justify-between mb-2 mt-2 p-2">
+          <div className="flex justify-between mb-2 mt-2 p-2 gap-2">
             <Checkbox className="text-black mb-6 size-4 mt-1 border-2 border-black rounded" />
             <p>Eu li e concordo com a Política de Privacidade</p>
           </div>

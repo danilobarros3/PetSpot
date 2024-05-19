@@ -10,7 +10,7 @@ export function Register() {
       <div className="w-full bg-primary flex flex-col justify-center items-center rounded-3xl p-4">
         <div className="grid md:grid-cols-2 w-full">
           <div className="flex flex-col justify-center items-center p-4">
-            <p className="font-semibold md:text-7xl text-5xl mt-10 mb-6">Registre-se</p>
+            <p className="font-semibold md:text-7xl text-6xl mt-10 md:mb-6 mb-2">Registre-se</p>
             <div className="w-[70%] mt-10 rounded-2xl p-2">
               <FormRegister />
             </div>
