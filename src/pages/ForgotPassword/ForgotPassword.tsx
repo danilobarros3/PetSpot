@@ -45,7 +45,7 @@ export function ForgotPassword() {
               <Button
                 variant="default"
                 type="button"
-                className="bg-primary text-white text-lg w-full rounded-[0.3125rem] h-14 mt-10"
+                className="bg-primary text-white text-lg w-full rounded-[0.3125rem] h-14 mt-10 hover:text-black"
                 onClick={handleRedirect}
               >
                 Redefinir Senha

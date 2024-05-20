@@ -51,7 +51,7 @@ export function Login() {
             <p className="font-semibold md:text-7xl text-5xl mt-5 mb-6">PetSpot</p>
             <p>Unificando ainda mais você e seu Pet!</p>
             <div className="w-full md:w-[70%] mt-10 rounded-2xl p-2">
-              <Button className="border-2 rounded-2xl text-black border-white bg-white p-4 mt-4 mb-5 py-5 w-full">
+              <Button className="border-2 rounded-2xl text-black border-white bg-white p-4 mt-4 mb-5 py-5 w-full hover:text-white">
                 <div className="flex items-center gap-3">
                   <img src={logoGoogle} width={30} alt="Google" />
                   <p>Login pelo Google</p>
@@ -120,7 +120,7 @@ export function Login() {
                         Esqueceu sua senha?
                       </p>
                     </div>
-                    <Button className="w-full flex gap-2 justify-center border-2 rounded-3xl mt-4 bg-black text-white py-6">
+                    <Button className="w-full flex gap-2 justify-center border-2 rounded-3xl mt-4 bg-black text-white py-6 hover:text-black">
                     {loading && <LoaderCircle className="animate-spin" />}
                       <p className="text-lg">Login</p>
                     </Button>

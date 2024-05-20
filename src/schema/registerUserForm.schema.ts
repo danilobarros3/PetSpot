@@ -16,4 +16,4 @@ export const initialRegisterFormValues = {
   sobrenome: "",
   dataDeNascimento: "",
   usuario: "",
-}
+};

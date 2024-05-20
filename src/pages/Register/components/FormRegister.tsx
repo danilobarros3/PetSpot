@@ -179,7 +179,7 @@ export function FormRegister() {
 
           <Button
             type="submit"
-            className="w-full flex justify-center border-2 rounded-3xl mt-4 bg-black text-white py-6 gap-2"
+            className="w-full flex justify-center border-2 rounded-3xl mt-4 bg-black text-white py-6 gap-2 hover:text-black"
           >
             {loading && <LoaderCircle className="animate-spin" />}
             <p className="text-lg">Registre-se</p>

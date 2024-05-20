@@ -12,7 +12,7 @@ export function RegisterPet() {
       <div className="w-full bg-primary flex flex-col justify-center items-center rounded-3xl p-4">
         <div className="grid md:grid-cols-2 w-full">
           <div className="flex flex-col justify-center items-center p-4">
-            <p className="font-semibold text-4xl md:text-6xl mt-10 mb-2">
+            <p className="font-semibold text-4xl md:text-6xl md:mt-10 mt-5 md:mb-2">
               Cadastre seu Pet
             </p>
             <div className="w-full md:w-[70%] mt-10 rounded-2xl p-2">
@@ -59,11 +59,11 @@ export function RegisterPet() {
                   className="border-2 rounded-2xl border-white bg-white p-4 mt-4  py-5"
                 />
               </div>
-              <div className="flex justify-between mb-5 mt-5 p-2">
+              <div className="flex justify-between mb-5 mt-5 p-2 gap-2">
                 <Checkbox className="text-black mb-6 size-4 mt-1 border-2 border-black rounded" />
                 <p>Eu li e concordo com a Política de Privacidade</p>
               </div>
-              <Button className="w-full flex justify-center border-2 rounded-3xl mt-4 bg-black text-white py-6">
+              <Button className="w-full flex justify-center border-2 rounded-3xl mt-4 bg-black text-white py-6 hover:text-black">
                 <p className="text-lg">Finalizar cadastro</p>
               </Button>
             </div>
@@ -73,12 +73,6 @@ export function RegisterPet() {
           </div>
         </div>
       </div>
-      {/* <div className="flex justify-center mt-20">
-        <p className="text-lg font-medium">
-          Mantenha seus animais de estimação felizes e saudáveis com cuidado
-          constante.
-        </p>
-      </div> */}
       <Footer/>
     </>
   );

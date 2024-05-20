@@ -8,7 +8,7 @@ export function Footer(){
       <p className="text-2xl">Cuide de seus bichinhos!</p>
       <p className="text-lg text-center">Sigam nossas redes sociais:</p>
       </div>
-      <div className="flex justify-center gap-10">
+      <div className="flex justify-center gap-10 mb-10">
       <img src={facebookImg} alt="" />
       <img src={tiktokImg} alt="" />
       <img src={instagramImg} alt="" />

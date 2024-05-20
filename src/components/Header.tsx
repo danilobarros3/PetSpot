@@ -19,7 +19,7 @@ export function Header() {
 
   return (
     <div className="rounded-3xl w-full bg-white border-[1px] border-gray-100 shadow-lg p-4 mb-10 mt-10">
-      <div className="flex md:justify-start gap-10 items-center w-full">
+      <div className="flex md:justify-center gap-10 items-center w-full">
         <img
           src={logoPaws}
           alt="Logo da Pata"
@@ -27,11 +27,9 @@ export function Header() {
           onClick={redirectHome}
         />
         <p className="md:hidden text-center items-center flex justify-center text-lg font-bold">PETSPOT</p>
-        <div className="hidden md:flex gap-10 md:justify-start items-center">
+        <div className="hidden md:flex md:justify-end gap-10 items-center">
           <p>Sobre nós</p>
           <p>Nossos serviços</p>
-          <p>Produtos</p>
-          <p>Pet Care</p>
           <p>Contato</p>
           <div className="p-2 rounded-full">
             <p className="text-lg cursor-pointer" onClick={redirectLogin}>
@@ -76,8 +74,6 @@ export function Header() {
                   <MenubarItem onClick={redirectHome}>Home</MenubarItem>
                   <MenubarItem>Sobre nós</MenubarItem>
                   <MenubarItem>Nossos serviços</MenubarItem>
-                  <MenubarItem>Produtos</MenubarItem>
-                  <MenubarItem>Pet Care</MenubarItem>
                   <MenubarItem>Contato</MenubarItem>
                   <MenubarSeparator />
                   <MenubarItem onClick={redirectLogin}>Login</MenubarItem>

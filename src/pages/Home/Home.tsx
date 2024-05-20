@@ -6,8 +6,15 @@ import imageBruno from "../../assets/imageBruno.jpeg";
 import imageJeser from "../../assets/imageJeser.jpeg";
 import imageLincoln from "../../assets/imageLincoln.jpeg";
 import { Header } from "../../components/Header";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../../components/ui/carousel";
-
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../../components/ui/carousel";
+import { GetInTouch } from "../../components/GetInTouch";
+import { Footer } from "../../components/Footer";
 
 export function Home() {
   return (
@@ -36,8 +43,10 @@ export function Home() {
         </div>
       </div>
       <div className="grid justify-center text-center mb-5">
-        <p className="font-bold text-2xl mt-6 mb-6">Nossos serviços</p>
-        <div className="w-full bg-primary items-center rounded-3xl shadow-2xl text-start">
+        <div className="w-full bg-primary items-center rounded-3xl shadow-2xl text-start mt-10">
+          <p className="font-bold text-2xl mt-6 mb-6 text-center">
+            Nossos serviços
+          </p>
           <Carousel>
             <CarouselContent>
               <CarouselItem>
@@ -98,12 +107,12 @@ export function Home() {
         </div>
       </div>
       <div className="grid justify-center text-center mb-5">
-        <p className="font-bold text-2xl mt-6 mb-6">Nosso time</p>
-        <div className="w-full bg-primary items-center rounded-3xl shadow-2xl text-start">
+        <div className="w-full bg-primary items-center rounded-3xl shadow-2xl text-start mt-5 h-full p-2">
+          <p className="font-bold text-2xl mt-6 mb-6 text-center">Nosso time</p>
           <Carousel>
             <CarouselContent>
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <img src={imageDanilo} className="" alt="" />
+                <img src={imageDanilo} className="rounded-t-3xl" alt="" />
                 <div className="bg-white p-2">
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -114,7 +123,7 @@ export function Home() {
                 </div>
               </CarouselItem>
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <img src={imageLincoln} alt="" />
+                <img src={imageLincoln} alt="" className="rounded-t-3xl" />
                 <div className="bg-white p-2">
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -125,7 +134,7 @@ export function Home() {
                 </div>
               </CarouselItem>
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <img src={imageAnrry} alt="" />
+                <img src={imageAnrry} alt="" className="rounded-t-3xl" />
                 <div className="bg-white p-2">
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -136,7 +145,7 @@ export function Home() {
                 </div>
               </CarouselItem>
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <img src={imageBruno} alt="" />
+                <img src={imageBruno} alt="" className="rounded-t-3xl" />
                 <div className="bg-white p-2">
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -147,7 +156,7 @@ export function Home() {
                 </div>
               </CarouselItem>
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <img src={imageJeser} alt="" />
+                <img src={imageJeser} alt="" className="rounded-t-3xl" />
                 <div className="bg-white p-2">
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -162,8 +171,9 @@ export function Home() {
             <CarouselNext />
           </Carousel>
         </div>
-          {/* <GetInTouch/> */}
+        <GetInTouch />
       </div>
+      <Footer />
     </>
   );
 }
