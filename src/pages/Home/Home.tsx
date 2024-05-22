@@ -42,7 +42,7 @@ export function Home() {
           </div>
         </div>
       </div>
-      <div className="grid justify-center text-center mb-5">
+      <div id="services" className="grid justify-center text-center mb-5">
         <div className="w-full bg-primary items-center rounded-3xl shadow-2xl text-start mt-10">
           <p className="font-bold text-2xl mt-6 mb-6 text-center">
             Nossos serviços
@@ -106,7 +106,7 @@ export function Home() {
           </Carousel>
         </div>
       </div>
-      <div className="grid justify-center text-center mb-5">
+      <div id="about" className="grid justify-center text-center mb-5">
         <div className="w-full bg-primary items-center rounded-3xl shadow-2xl text-start mt-5 h-full p-2">
           <p className="font-bold text-2xl mt-6 mb-6 text-center">Nosso time</p>
           <Carousel>
@@ -171,7 +171,9 @@ export function Home() {
             <CarouselNext />
           </Carousel>
         </div>
-        <GetInTouch />
+        <div id="contact">
+          <GetInTouch />
+        </div>
       </div>
       <Footer />
     </>

@@ -6,29 +6,18 @@ import {
   MenubarContent,
   MenubarItem,
   MenubarMenu,
-  MenubarSeparator,
   MenubarTrigger,
 } from "./ui/menubar";
 
-export function Header() {
+export function HeaderFeed() {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const redirectLogin = () => {
-    navigate("/login");
+  const redirectAllPets = () => {
+    navigate("/meus-pets");
   };
-  const redirectRegister = () => {
-    navigate("/cadastro");
-  };
-  const redirectHome = () => {
-    navigate("/");
-  };
-
-  const scrollToSection = (sectionId: any) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const redirectMenu = () => {
+    navigate("/feed");
   };
 
   return (
@@ -38,40 +27,17 @@ export function Header() {
           src={logoPaws}
           alt="Logo da Pata"
           className="cursor-pointer"
-          onClick={redirectHome}
+          onClick={redirectMenu}
         />
         <p className="md:hidden text-center items-center flex justify-center text-lg font-bold">
           PETSPOT
         </p>
         <div className="hidden md:flex md:justify-end gap-10 items-center">
-          <p
-            onClick={() => scrollToSection("about")}
-            className="cursor-pointer"
-          >
-            Sobre nós
-          </p>
-          <p
-            onClick={() => scrollToSection("services")}
-            className="cursor-pointer"
-          >
-            Nossos serviços
-          </p>
-          <p
-            onClick={() => scrollToSection("contact")}
-            className="cursor-pointer"
-          >
-            Contato
-          </p>
-          <div className="p-2 rounded-full">
-            <p className="text-lg cursor-pointer" onClick={redirectLogin}>
-              Login
-            </p>
-          </div>
-          <div className="p-2 rounded-full">
-            <p className="text-lg cursor-pointer" onClick={redirectRegister}>
-              Registre-se
-            </p>
-          </div>
+          <p onClick={redirectMenu}>Menu</p>
+          <p>Histórico</p>
+          <p onClick={redirectAllPets}>Meus Pets</p>
+          <p>Prestadores de serviço</p>
+          <p>Convênio</p>
         </div>
         <div className="md:hidden flex items-center">
           <Menubar>
@@ -102,21 +68,11 @@ export function Header() {
               </MenubarTrigger>
               {isMenuOpen && (
                 <MenubarContent className="top-16 bg-white shadow-lg rounded-b-3xl">
-                  <MenubarItem onClick={redirectHome}>Home</MenubarItem>
-                  <MenubarItem onClick={() => scrollToSection("about")}>
-                    Sobre nós
-                  </MenubarItem>
-                  <MenubarItem onClick={() => scrollToSection("services")}>
-                    Nossos serviços
-                  </MenubarItem>
-                  <MenubarItem onClick={() => scrollToSection("contact")}>
-                    Contato
-                  </MenubarItem>
-                  <MenubarSeparator />
-                  <MenubarItem onClick={redirectLogin}>Login</MenubarItem>
-                  <MenubarItem onClick={redirectRegister}>
-                    Registre-se
-                  </MenubarItem>
+                  <MenubarItem onClick={redirectMenu}>Menu</MenubarItem>
+                  <MenubarItem>Histórico</MenubarItem>
+                  <MenubarItem onClick={redirectAllPets}>Meus Pets</MenubarItem>
+                  <MenubarItem>Prestadores de serviço</MenubarItem>
+                  <MenubarItem>Convênio</MenubarItem>
                 </MenubarContent>
               )}
             </MenubarMenu>

@@ -21,7 +21,7 @@ export function FormGetInTouch() {
       onSubmit={handleFormSubmit}
     >
       <Form className="w-full p-5">
-        <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4 mt-5">
+        <div className="w-full">
           <div className="mb-6 w-full">
             <label
               htmlFor="nome"
@@ -85,18 +85,18 @@ export function FormGetInTouch() {
         </div>
         <div className="mb-6 w-full">
           <label
-            htmlFor="obs"
+            htmlFor="message"
             className="block text-sm font-medium text-gray-700 w-full text-start"
           >
-            Observação
+            Mensagem
             <Textarea
-              id="obs"
-              name="obs"
+              id="message"
+              name="message"
               className="mt-1 p-2 w-full border rounded-md"
             />
           </label>
           <ErrorMessage
-            name="obs"
+            name="message"
             component="p"
             className="text-red-500 text-xs italic text-start"
           />

@@ -12,22 +12,25 @@ import { Checkbox } from "../../../components/ui/checkbox";
 import api from "../../../services";
 import { catchError } from "../../../utils/catchError";
 import { LoaderCircle } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export function FormRegister() {
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const handleFormRegisterSubmit = async (values: IRegisterInfo) => {
     setLoading(true);
-    setTimeout(async () => {
     try {
       const { data } = await api.post("/register", values);
       toast.success(data.message);
+      setTimeout(() => {
+        navigate("/cadastre-seu-pet");
+        }, 1000);
     } catch (error) {
       console.error(error);
       catchError(error, "Erro ao se cadastrar. Tente novamente.");
     } finally {
       setLoading(false);
     }
-  }, 1000);
   };
 
   return (
@@ -84,27 +87,6 @@ export function FormRegister() {
             </div>
           </div>
           <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
-            <div className="mb-4 w-full">
-              <label
-                htmlFor="usuario"
-                className="block text-sm font-medium text-gray-700 w-full"
-              >
-                Usuário
-              </label>
-              <Input
-                type="text"
-                id="usuario"
-                onChange={handleChange}
-                value={values.usuario}
-                name="usuario"
-                className="mt-1 p-2 w-full border rounded-md"
-              />
-              <ErrorMessage
-                name="usuario"
-                component="p"
-                className="text-red-500 text-xs italic"
-              />
-            </div>
             <div className="mb-4 w-full">
               <label
                 htmlFor="dataDeNascimento"

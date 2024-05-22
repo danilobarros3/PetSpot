@@ -6,7 +6,7 @@ import { ForgotPassword } from "../pages/ForgotPassword/ForgotPassword";
 import { RegisterPet } from "../pages/RegisterPet/RegisterPet";
 import { AuthProvider } from "../context/authContext";
 import PrivateRoute from "../components/PrivateRoute";
-
+import { Feed } from "../pages/Feed/feed"
 const Router = () => {
   return (
     <AuthProvider>
@@ -21,6 +21,14 @@ const Router = () => {
             element={
               <PrivateRoute>
                 <RegisterPet />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/feed"
+            element={
+              <PrivateRoute>
+                <Feed/>
               </PrivateRoute>
             }
           />

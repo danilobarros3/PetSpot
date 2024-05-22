@@ -10,10 +10,10 @@ export function GetInTouch() {
         <h1 className="font-bold text-2xl mt-5">Entre em contato</h1>
         <hr className="w-full mt-5 mb-5" />
         <div className="grid md:grid-cols-2 w-full">
-          <div className="md:flex grid justify-start items-center bg-white rounded-2xl mt-5 w-full md:h-[50vh] mb-10">
+          <div className="md:flex grid justify-start items-center bg-white rounded-2xl w-full h-full mb-10">
             <FormGetInTouch />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 p-20 mt-10">
+          <div className="grid-cols-1 md:grid-cols-2 gap-20 p-20 mt-10 md:grid hidden">
             <div className="text-start">
               <img src={emailIcon} alt="" />
               <p className="mt-2">Nós temos um time para te ajudar</p>

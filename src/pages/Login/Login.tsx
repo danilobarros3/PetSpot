@@ -10,7 +10,10 @@ import api from "../../services";
 import { ILoginInfo } from "../../types/loginInfo";
 import { ErrorMessage, Form, Formik } from "formik";
 import { Input } from "../../components/ui/input";
-import { initialLoginFormValues, loginUserSchema } from "../../schema/loginUserForm.schema";
+import {
+  initialLoginFormValues,
+  loginUserSchema,
+} from "../../schema/loginUserForm.schema";
 import { LoaderCircle } from "lucide-react";
 import { catchError } from "../../utils/catchError";
 import { Footer } from "../../components/Footer";
@@ -27,19 +30,19 @@ export function Login() {
 
   const handleFormLoginSubmit = async (values: ILoginInfo) => {
     setLoading(true);
-    setTimeout(async () => {
     try {
       const { data } = await api.post("/login", values);
       toast.success(data.message);
       signin(data.token, data.name, data.email);
+      setTimeout(() => {
       navigate("/cadastre-seu-pet");
+      }, 1000);
     } catch (error) {
       console.error(error);
       catchError(error, "Erro ao realizar o login. Tente novamente.");
     } finally {
       setLoading(false);
     }
-  }, 1000);
   };
 
   return (
@@ -48,7 +51,9 @@ export function Login() {
       <div className="w-full bg-primary justify-center items-center rounded-3xl">
         <div className="grid md:grid-cols-2">
           <div className="flex flex-col justify-center items-center p-4">
-            <p className="font-semibold md:text-7xl text-5xl mt-5 mb-6">PetSpot</p>
+            <p className="font-semibold md:text-7xl text-5xl mt-5 mb-6">
+              PetSpot
+            </p>
             <p>Unificando ainda mais você e seu Pet!</p>
             <div className="w-full md:w-[70%] mt-10 rounded-2xl p-2">
               <Button className="border-2 rounded-2xl text-black border-white bg-white p-4 mt-4 mb-5 py-5 w-full hover:text-white">
@@ -58,75 +63,75 @@ export function Login() {
                 </div>
               </Button>
               <div>
-              <Formik
-                initialValues={initialLoginFormValues}
-                validationSchema={loginUserSchema}
-                onSubmit={handleFormLoginSubmit}
-              >
-                {({ values, handleChange }) => (
-                  <Form className="w-full">
-                    <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
-                      <div className="mb-4 w-full">
-                        <label
-                          htmlFor="email"
-                          className="block text-sm font-medium text-gray-700 w-full"
-                        >
-                          E-mail
-                        </label>
-                        <Input
-                          type="text"
-                          id="email"
-                          onChange={handleChange}
-                          value={values.email}
-                          name="email"
-                          className="mt-1 p-2 w-full border rounded-md"
-                        />
-                        <ErrorMessage
-                          name="email"
-                          component="p"
-                          className="text-red-500 text-xs italic"
-                        />
+                <Formik
+                  initialValues={initialLoginFormValues}
+                  validationSchema={loginUserSchema}
+                  onSubmit={handleFormLoginSubmit}
+                >
+                  {({ values, handleChange }) => (
+                    <Form className="w-full">
+                      <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
+                        <div className="mb-4 w-full">
+                          <label
+                            htmlFor="email"
+                            className="block text-sm font-medium text-gray-700 w-full"
+                          >
+                            E-mail
+                          </label>
+                          <Input
+                            type="text"
+                            id="email"
+                            onChange={handleChange}
+                            value={values.email}
+                            name="email"
+                            className="mt-1 p-2 w-full border rounded-md"
+                          />
+                          <ErrorMessage
+                            name="email"
+                            component="p"
+                            className="text-red-500 text-xs italic"
+                          />
+                        </div>
                       </div>
-                    </div>
 
-                    <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
-                      <div className="mb-4 w-full">
-                        <label
-                          htmlFor="senha"
-                          className="block text-sm font-medium text-gray-700 w-full"
-                        >
-                          Senha
-                        </label>
-                        <Input
-                          type="password"
-                          id="senha"
-                          onChange={handleChange}
-                          value={values.senha}
-                          name="senha"
-                          className="mt-1 p-2 w-full border rounded-md"
-                        />
-                        <ErrorMessage
-                          name="senha"
-                          component="p"
-                          className="text-red-500 text-xs italic"
-                        />
+                      <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
+                        <div className="mb-4 w-full">
+                          <label
+                            htmlFor="senha"
+                            className="block text-sm font-medium text-gray-700 w-full"
+                          >
+                            Senha
+                          </label>
+                          <Input
+                            type="password"
+                            id="senha"
+                            onChange={handleChange}
+                            value={values.senha}
+                            name="senha"
+                            className="mt-1 p-2 w-full border rounded-md"
+                          />
+                          <ErrorMessage
+                            name="senha"
+                            component="p"
+                            className="text-red-500 text-xs italic"
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex justify-end">
-                      <p
-                        className="mt-2 mb-5 cursor-pointer underline"
-                        onClick={handleForgotPassword}
-                      >
-                        Esqueceu sua senha?
-                      </p>
-                    </div>
-                    <Button className="w-full flex gap-2 justify-center border-2 rounded-3xl mt-4 bg-black text-white py-6 hover:text-black">
-                    {loading && <LoaderCircle className="animate-spin" />}
-                      <p className="text-lg">Login</p>
-                    </Button>
-                  </Form>
-                )}
-              </Formik>
+                      <div className="flex justify-end">
+                        <p
+                          className="mt-2 mb-5 cursor-pointer underline"
+                          onClick={handleForgotPassword}
+                        >
+                          Esqueceu sua senha?
+                        </p>
+                      </div>
+                      <Button className="w-full flex gap-2 justify-center border-2 rounded-3xl mt-4 bg-black text-white py-6 hover:text-black">
+                        {loading && <LoaderCircle className="animate-spin" />}
+                        <p className="text-lg">Login</p>
+                      </Button>
+                    </Form>
+                  )}
+                </Formik>
               </div>
               <p
                 className="mt-10 flex justify-center cursor-pointer underline"
@@ -145,7 +150,7 @@ export function Login() {
           </div>
         </div>
       </div>
-        <Footer/>
+      <Footer />
     </>
   );
 }
