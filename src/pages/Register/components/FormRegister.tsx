@@ -11,8 +11,14 @@ import { useState } from "react";
 import { Checkbox } from "../../../components/ui/checkbox";
 import api from "../../../services";
 import { catchError } from "../../../utils/catchError";
-import { LoaderCircle } from "lucide-react";
+import { Info, LoaderCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../../../components/ui/tooltip";
 
 export function FormRegister() {
   const [loading, setLoading] = useState(false);
@@ -24,7 +30,7 @@ export function FormRegister() {
       toast.success(data.message);
       setTimeout(() => {
         navigate("/cadastre-seu-pet");
-        }, 1000);
+      }, 1000);
     } catch (error) {
       console.error(error);
       catchError(error, "Erro ao se cadastrar. Tente novamente.");
@@ -130,23 +136,38 @@ export function FormRegister() {
                 className="text-red-500 text-xs italic"
               />
             </div>
-            </div>
-            <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
-            <div className="mb-4 w-full">
+          </div>
+          <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
+            <div className="mb-4 w-full relative">
               <label
                 htmlFor="senha"
                 className="block text-sm font-medium text-gray-700 w-full"
               >
                 Senha
               </label>
-              <Input
-                type="password"
-                id="senha"
-                value={values.senha}
-                onChange={handleChange}
-                name="senha"
-                className="mt-1 p-2 w-full border rounded-md"
-              />
+              <div className="flex items-center mt-1 relative">
+                <Input
+                  type="password"
+                  id="senha"
+                  value={values.senha}
+                  onChange={handleChange}
+                  name="senha"
+                  className="p-2 w-full border rounded-md pr-10"
+                />
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger className="absolute right-2 grid">
+                      <Info />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>
+                        Sua senha precisa ter pelo menos uma letra maiúscula,
+                        uma minúsculas, um número e um caracter especial.
+                      </p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </div>
               <ErrorMessage
                 name="senha"
                 component="p"
@@ -154,6 +175,7 @@ export function FormRegister() {
               />
             </div>
           </div>
+
           <div className="flex justify-between mb-2 mt-2 p-2 gap-2">
             <Checkbox className="text-black mb-6 size-4 mt-1 border-2 border-black rounded" />
             <p>Eu li e concordo com a Política de Privacidade</p>

@@ -31,6 +31,12 @@ export function Header() {
     }
   };
 
+  const idUser = localStorage.getItem("id");
+  const storedUserAccess = localStorage.getItem("user:accessUser");
+  const userAccess = storedUserAccess ? JSON.parse(storedUserAccess) : {};
+  const storedEmail = userAccess.email;
+  const storedName = userAccess.name;
+
   return (
     <div className="rounded-3xl w-full bg-white border-[1px] border-gray-100 shadow-lg p-4 mb-10 mt-10">
       <div className="flex md:justify-center gap-10 items-center w-full">
@@ -40,6 +46,12 @@ export function Header() {
           className="cursor-pointer"
           onClick={redirectHome}
         />
+        <div>
+            <p className="text-base text-end">
+              <strong>{storedName}</strong>
+            </p>
+            <p className="text-end">{storedEmail}</p>
+          </div>
         <p className="md:hidden text-center items-center flex justify-center text-lg font-bold">
           PETSPOT
         </p>
