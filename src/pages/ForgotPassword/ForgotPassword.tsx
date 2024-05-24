@@ -86,11 +86,8 @@ export function ForgotPassword() {
                       className="bg-primary text-white text-lg w-full rounded-[0.3125rem] h-14 mt-10 hover:text-black"
                       disabled={loading}
                     >
-                      {loading ? (
-                        <LoaderCircle className="animate-spin" />
-                      ) : (
-                        "Redefinir senha"
-                      )}
+                      {loading && <LoaderCircle className="animate-spin" />}
+                        <p className="text-lg">Redefinir senha</p>
                     </Button>
                   </div>
                   <span
