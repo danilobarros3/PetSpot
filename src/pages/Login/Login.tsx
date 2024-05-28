@@ -1,4 +1,4 @@
-import imageLogin from "../../assets/imageLogin.png";
+import imageLogin from "../../assets/catNotebook-removebg-preview.png";
 import logoGoogle from "../../assets/iconGoogle.png";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header";
@@ -141,7 +141,7 @@ export function Login() {
               </p>
             </div>
           </div>
-          <div className="grid md:flex justify-center items-center">
+          <div className="grid md:flex justify-center items-center mr-10">
             <img
               src={imageLogin}
               alt="Login"

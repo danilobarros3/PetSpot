@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logoPaws from "../assets/paws.png";
+import logoPaws from "../assets/headerimage.png";
 import {
   Menubar,
   MenubarContent,
@@ -31,7 +31,7 @@ export function Header() {
     }
   };
 
-  const idUser = localStorage.getItem("id");
+  // const idUser = localStorage.getItem("id");
   const storedUserAccess = localStorage.getItem("user:accessUser");
   const userAccess = storedUserAccess ? JSON.parse(storedUserAccess) : {};
   const storedEmail = userAccess.email;
@@ -39,7 +39,7 @@ export function Header() {
 
   return (
     <div className="rounded-3xl w-full bg-white border-[1px] border-gray-100 shadow-lg p-4 mb-10 mt-10">
-      <div className="flex md:justify-center gap-10 items-center w-full">
+      <div className="flex md:justify-center justify-between gap-10 items-center w-full">
         <img
           src={logoPaws}
           alt="Logo da Pata"
@@ -47,14 +47,11 @@ export function Header() {
           onClick={redirectHome}
         />
         <div>
-            <p className="text-base text-end">
+            <p className="text-base text-end md:block hidden">
               <strong>{storedName}</strong>
             </p>
-            <p className="text-end">{storedEmail}</p>
+            <p className="text-end md:block hidden">{storedEmail}</p>
           </div>
-        <p className="md:hidden text-center items-center flex justify-center text-lg font-bold">
-          PETSPOT
-        </p>
         <div className="hidden md:flex md:justify-end gap-10 items-center">
           <p
             onClick={() => scrollToSection("about")}
