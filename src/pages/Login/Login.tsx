@@ -1,7 +1,4 @@
-import imageLogin from "../../assets/catNotebook-removebg-preview.png";
-import logoGoogle from "../../assets/iconGoogle.png";
 import { useNavigate } from "react-router-dom";
-import { Header } from "../../components/Header";
 import { Button } from "../../components/ui/button";
 import { useAuth } from "../../hooks/useAuth";
 import { useState } from "react";
@@ -16,14 +13,20 @@ import {
 } from "../../schema/loginUserForm.schema";
 import { LoaderCircle } from "lucide-react";
 import { catchError } from "../../utils/catchError";
+import imageLogin from "../../assets/catNotebook-removebg-preview.png";
+import logoGoogle from "../../assets/iconGoogle.png";
 import { Footer } from "../../components/Footer";
+import { Layout } from "../../Layout";
+
 export function Login() {
   const navigate = useNavigate();
   const { signin } = useAuth();
   const [loading, setLoading] = useState(false);
+
   function handleForgotPassword() {
     navigate("/esqueceu-a-senha");
   }
+
   function handleRegister() {
     navigate("/cadastro");
   }
@@ -33,9 +36,10 @@ export function Login() {
     try {
       const { data } = await api.post("/login", values);
       toast.success(data.message);
-      signin(data.token, data.name, data.email);
+      signin(data.token, data.name, data.email, data.userId);
+      console.log(data.token);
       setTimeout(() => {
-      navigate("/cadastre-seu-pet");
+        navigate("/cadastre-seu-pet");
       }, 1000);
     } catch (error) {
       console.error(error);
@@ -46,8 +50,7 @@ export function Login() {
   };
 
   return (
-    <>
-      <Header />
+    <Layout>
       <div className="w-full bg-primary justify-center items-center rounded-3xl">
         <div className="grid md:grid-cols-2">
           <div className="flex flex-col justify-center items-center p-4">
@@ -97,21 +100,21 @@ export function Login() {
                       <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
                         <div className="mb-4 w-full">
                           <label
-                            htmlFor="senha"
+                            htmlFor="password"
                             className="block text-sm font-medium text-gray-700 w-full"
                           >
                             Senha
                           </label>
                           <Input
                             type="password"
-                            id="senha"
+                            id="password"
                             onChange={handleChange}
-                            value={values.senha}
-                            name="senha"
+                            value={values.password}
+                            name="password"
                             className="mt-1 p-2 w-full border rounded-md"
                           />
                           <ErrorMessage
-                            name="senha"
+                            name="password"
                             component="p"
                             className="text-red-500 text-xs italic"
                           />
@@ -151,6 +154,6 @@ export function Login() {
         </div>
       </div>
       <Footer />
-    </>
+    </Layout>
   );
 }

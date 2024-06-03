@@ -29,7 +29,7 @@ export function FormRegister() {
       const { data } = await api.post("/register", values);
       toast.success(data.message);
       setTimeout(() => {
-        navigate("/cadastre-seu-pet");
+        navigate("/login");
       }, 1000);
     } catch (error) {
       console.error(error);
@@ -50,21 +50,21 @@ export function FormRegister() {
           <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
             <div className="mb-4 w-full">
               <label
-                htmlFor="nome"
+                htmlFor="name"
                 className="block text-sm font-medium text-gray-700 w-full"
               >
                 Nome
               </label>
               <Input
                 type="text"
-                id="nome"
-                name="nome"
-                value={values.nome}
+                id="name"
+                name="name"
+                value={values.name}
                 onChange={handleChange}
                 className="mt-1 p-2 w-full border rounded-md"
               />
               <ErrorMessage
-                name="nome"
+                name="name"
                 component="p"
                 className="text-red-500 text-xs italic"
               />
@@ -72,21 +72,21 @@ export function FormRegister() {
 
             <div className="mb-4 w-full">
               <label
-                htmlFor="sobrenome"
+                htmlFor="surname"
                 className="block text-sm font-medium text-gray-700 w-full"
               >
                 Sobrenome
               </label>
               <Input
-                type="sobrenome"
-                id="sobrenome"
-                value={values.sobrenome}
+                type="surname"
+                id="surname"
+                value={values.surname}
                 onChange={handleChange}
-                name="sobrenome"
+                name="surname"
                 className="mt-1 p-2 w-full border rounded-md"
               />
               <ErrorMessage
-                name="sobrenome"
+                name="surname"
                 component="p"
                 className="text-red-500 text-xs italic"
               />
@@ -95,20 +95,21 @@ export function FormRegister() {
           <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
             <div className="mb-4 w-full">
               <label
-                htmlFor="dataDeNascimento"
+                htmlFor="birthday"
                 className="block text-sm font-medium text-gray-700 w-full"
               >
                 Data de nascimento
               </label>
               <Input
                 type="date"
-                id="dataDeNascimento"
+                id="birthday"
+                value={values.birthday}
                 onChange={handleChange}
-                name="dataDeNascimento"
+                name="birthday"
                 className="mt-1 p-2 w-full border rounded-md"
               />
               <ErrorMessage
-                name="dataDeNascimento"
+                name="birthday"
                 component="p"
                 className="text-red-500 text-xs italic"
               />
@@ -140,7 +141,7 @@ export function FormRegister() {
           <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
             <div className="mb-4 w-full relative">
               <label
-                htmlFor="senha"
+                htmlFor="password"
                 className="block text-sm font-medium text-gray-700 w-full"
               >
                 Senha
@@ -148,10 +149,10 @@ export function FormRegister() {
               <div className="flex items-center mt-1 relative">
                 <Input
                   type="password"
-                  id="senha"
-                  value={values.senha}
+                  id="password"
+                  value={values.password}
                   onChange={handleChange}
-                  name="senha"
+                  name="password"
                   className="p-2 w-full border rounded-md pr-10"
                 />
                 <TooltipProvider>
@@ -169,7 +170,7 @@ export function FormRegister() {
                 </TooltipProvider>
               </div>
               <ErrorMessage
-                name="senha"
+                name="password"
                 component="p"
                 className="text-red-500 text-xs italic"
               />

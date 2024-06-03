@@ -1,36 +1,42 @@
-import { ReactNode, createContext, useCallback, useState } from 'react'
-import { localStorageKeys } from '../config/localStorageKeys'
+import { ReactNode, createContext, useCallback, useState } from 'react';
+import { localStorageKeys } from '../config/localStorageKeys';
 
 interface AuthContextValue {
-  signedIn: boolean
+  signedIn: boolean;
   setSignedIn: any;
-  signin(accessToken: string, name: string, email: string): void
-  signout(): void
+  userId: string | null;
+  signin(accessToken: string, name: string, email: string, userId: string): void;
+  signout(): void;
 }
 
-export const AuthContext = createContext({} as AuthContextValue)
+export const AuthContext = createContext({} as AuthContextValue);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [signedIn, setSignedIn] = useState<boolean>(
     () => !!localStorage.getItem(localStorageKeys.ACCESS_USER),
-  )
+  );
+  const [userId, setUserId] = useState<string | null>(
+    () => JSON.parse(localStorage.getItem(localStorageKeys.ACCESS_USER) || '{}').userId || null
+  );
 
-  const signin = useCallback((accessToken: string, name: string, email: string) => {
-    const object = { token: accessToken, name, email }
-    localStorage.setItem(localStorageKeys.ACCESS_USER, JSON.stringify(object))
+  const signin = useCallback((accessToken: string, name: string, email: string, userId: string) => {
+    const object = { token: accessToken, name, email, userId };
+    localStorage.setItem(localStorageKeys.ACCESS_USER, JSON.stringify(object));
 
-    setSignedIn(true)
-  }, [])
+    setSignedIn(true);
+    setUserId(userId);
+  }, []);
 
   const signout = useCallback(() => {
-    localStorage.removeItem(localStorageKeys.ACCESS_USER)
+    localStorage.removeItem(localStorageKeys.ACCESS_USER);
 
-    setSignedIn(false)
-  }, [])
+    setSignedIn(false);
+    setUserId(null);
+  }, []);
 
   return (
-    <AuthContext.Provider value={{ signedIn, setSignedIn, signin, signout }}>
+    <AuthContext.Provider value={{ signedIn, setSignedIn, userId, signin, signout }}>
       {children}
     </AuthContext.Provider>
-  )
+  );
 }

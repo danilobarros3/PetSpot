@@ -1,12 +1,12 @@
 import { Footer } from "../../components/Footer";
-import { Header } from "../../components/Header";
 import imageRegister from "../../assets/registerImage.png";
 import { FormRegister } from "./components/FormRegister";
+import { Layout } from "../../Layout";
 
 export function Register() {
   return (
     <>
-      <Header />
+      <Layout> 
       <div className="w-full bg-primary flex flex-col justify-center items-center rounded-3xl p-4">
         <div className="grid md:grid-cols-2 w-full">
           <div className="flex flex-col justify-center items-center p-4">
@@ -25,6 +25,7 @@ export function Register() {
         </div>
       </div>
       <Footer />
+      </Layout>
     </>
   );
 }

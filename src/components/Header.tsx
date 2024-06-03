@@ -31,7 +31,7 @@ export function Header() {
     }
   };
 
-  // const idUser = localStorage.getItem("id");
+  const idUser = localStorage.getItem("id");
   const storedUserAccess = localStorage.getItem("user:accessUser");
   const userAccess = storedUserAccess ? JSON.parse(storedUserAccess) : {};
   const storedEmail = userAccess.email;
