@@ -56,7 +56,7 @@ export function RegisterPet() {
             <p className="font-semibold text-4xl md:text-6xl md:mt-10 mt-5 md:mb-2">
               Cadastre seu Pet
             </p>
-            <div className="w-full md:w-[70%] mt-10 rounded-2xl p-2">
+            <div className="w-full md:w-[80%] mt-10 rounded-2xl p-2">
               <div>
                 <Formik
                   initialValues={initialRegisterPetFormValues}
@@ -133,6 +133,7 @@ export function RegisterPet() {
                             <option value="" disabled hidden>
                               Selecione o gênero
                             </option>
+                            <option value="0">Desconhecido(a)</option>
                             <option value="1">Macho</option>
                             <option value="2">Fêmea</option>
                           </select>
@@ -143,6 +144,7 @@ export function RegisterPet() {
                           />
                         </div>
                       </div>
+                      <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
                       <div className="mb-4 w-full">
                         <label
                           htmlFor="race"
@@ -185,6 +187,7 @@ export function RegisterPet() {
                           className="text-red-500 text-xs italic"
                         />
                       </div>
+                      </div>
                       <div className="w-full lg:flex lg:flex-row lg:items-center lg:w-full lg:justify-between lg:gap-4">
                         <div className="mb-4 w-full">
                           <label
@@ -208,7 +211,7 @@ export function RegisterPet() {
                           />
                         </div>
                       </div>
-                      <div className="flex justify-between mb-5 mt-5 p-2 gap-2">
+                      <div className="flex mb-5 mt-5 p-2 gap-2">
                         <Checkbox className="text-black mb-6 size-4 mt-1 border-2 border-black rounded" />
                         <p>Eu li e concordo com a Política de Privacidade</p>
                       </div>
