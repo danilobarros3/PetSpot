@@ -106,6 +106,7 @@ export function RegisterPet() {
                             <option value="" disabled hidden>
                               Selecione a espécie
                             </option>
+                            <option value="0">Desconhecido(a)</option>
                             <option value="1">Cachorro</option>
                             <option value="2">Gato</option>
                           </select>
