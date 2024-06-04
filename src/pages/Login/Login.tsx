@@ -36,6 +36,7 @@ export function Login() {
     try {
       const { data } = await api.post("/login", values);
       toast.success(data.message);
+      localStorage.setItem("token", data.token);
       signin(data.token, data.name, data.email, data.userId);
       console.log(data.token);
       setTimeout(() => {
