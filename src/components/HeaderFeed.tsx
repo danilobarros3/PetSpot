@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logoPaws from "../assets/paws.png";
+import logoPaws from "../assets/headerimage.png";
 import {
   Menubar,
   MenubarContent,
@@ -22,7 +22,7 @@ export function HeaderFeed() {
 
   return (
     <div className="rounded-3xl w-full bg-white border-[1px] border-gray-100 shadow-lg p-4 mb-10 mt-10">
-      <div className="flex md:justify-center gap-10 items-center w-full">
+      <div className="flex md:justify-center gap-10 items-center w-full justify-between">
         <img
           src={logoPaws}
           alt="Logo da Pata"

@@ -10,7 +10,6 @@ import {
 
 export function FormGetInTouch() {
   const handleFormSubmit = (values: any, { setSubmitting }: any) => {
-    console.log(values);
     setSubmitting(false);
   };
 

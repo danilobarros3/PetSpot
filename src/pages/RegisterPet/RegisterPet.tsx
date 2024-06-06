@@ -43,10 +43,6 @@ export function RegisterPet() {
     }
   };
 
-  useEffect(() => {
-    console.log(userId);
-  }, [userId]);
-
   return (
     <>
       <Layout>

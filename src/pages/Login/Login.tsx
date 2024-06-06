@@ -38,7 +38,6 @@ export function Login() {
       toast.success(data.message);
       localStorage.setItem("token", data.token);
       signin(data.token, data.name, data.email, data.userId);
-      console.log(data.token);
       setTimeout(() => {
         navigate("/cadastre-seu-pet");
       }, 1000);
