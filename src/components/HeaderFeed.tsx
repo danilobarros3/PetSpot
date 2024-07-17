@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logoPaws from "../assets/headerimage.png";
 import {
@@ -33,11 +33,13 @@ export function HeaderFeed() {
           PETSPOT
         </p>
         <div className="hidden md:flex md:justify-end gap-10 items-center">
-          <p onClick={redirectMenu}>Menu</p>
-          <p>Histórico</p>
-          <p onClick={redirectAllPets}>Meus Pets</p>
-          <p>Prestadores de serviço</p>
-          <p>Convênio</p>
+          <p onClick={redirectMenu} className="cursor-pointer">Menu</p>
+          <p className="cursor-pointer">Histórico</p>
+          <p onClick={redirectAllPets} className="cursor-pointer">
+            Meus Pets
+          </p>
+          <p className="cursor-pointer">Prestadores de serviço</p>
+          <p className="cursor-pointer">Convênio</p>
         </div>
         <div className="md:hidden flex items-center">
           <Menubar>
@@ -68,9 +70,19 @@ export function HeaderFeed() {
               </MenubarTrigger>
               {isMenuOpen && (
                 <MenubarContent className="top-16 bg-white shadow-lg rounded-b-3xl">
-                  <MenubarItem onClick={redirectMenu}>Menu</MenubarItem>
+                  <MenubarItem
+                    onClick={redirectMenu}
+                    className="cursor-pointer"
+                  >
+                    Menu
+                  </MenubarItem>
                   <MenubarItem>Histórico</MenubarItem>
-                  <MenubarItem onClick={redirectAllPets}>Meus Pets</MenubarItem>
+                  <MenubarItem
+                    onClick={redirectAllPets}
+                    className="cursor-pointer"
+                  >
+                    Meus Pets
+                  </MenubarItem>
                   <MenubarItem>Prestadores de serviço</MenubarItem>
                   <MenubarItem>Convênio</MenubarItem>
                 </MenubarContent>

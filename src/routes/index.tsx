@@ -7,6 +7,7 @@ import { RegisterPet } from "../pages/RegisterPet/RegisterPet";
 import { AuthProvider } from "../context/authContext";
 import PrivateRoute from "../components/PrivateRoute";
 import { Feed } from "../pages/Feed/feed"
+import { MyPets } from "../pages/MyPets/MyPets";
 const Router = () => {
   return (
     <AuthProvider>
@@ -29,6 +30,14 @@ const Router = () => {
             element={
               <PrivateRoute>
                 <Feed/>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/meus-pets"
+            element={
+              <PrivateRoute>
+                <MyPets/>
               </PrivateRoute>
             }
           />
