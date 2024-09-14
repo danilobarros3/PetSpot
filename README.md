@@ -1,6 +1,6 @@
-# PetSpot - Projeto Pessoal
+# PetSpot - Projeto Pessoal - ReactJS
 
-O PetSpot é um aplicativo de carteira digital para animais de estimação, projetado para facilitar o acesso rápido e conveniente às informações de saúde do seu pet durante visitas veterinárias. Com o PetSpot, você não precisa mais se preocupar em perder ou esquecer a carteirinha de vacinação do seu animal.
+O PetSpot é um site web criado com ReactJS e TailwindCss de carteira digital para animais de estimação, projetado para facilitar o acesso rápido e conveniente às informações de saúde do seu pet durante visitas veterinárias. Com o PetSpot, você não precisa mais se preocupar em perder ou esquecer a carteirinha de vacinação do seu animal.
 
 ## Recursos
 
