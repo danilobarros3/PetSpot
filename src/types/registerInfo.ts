@@ -4,5 +4,4 @@ export interface IRegisterInfo {
   name: string;
   surname: string;
   birthday: string;
-  usuario: string;
 }

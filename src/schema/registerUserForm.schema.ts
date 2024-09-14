@@ -14,5 +14,4 @@ export const initialRegisterFormValues = {
   name: "",
   surname: "",
   birthday: "",
-  usuario: "PETOWNER",
 };

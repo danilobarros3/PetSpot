@@ -4,7 +4,7 @@ import api from "../../services";
 import { useAuth } from "../../hooks/useAuth";
 import { ChevronLeft, ChevronRight, LoaderCircle } from "lucide-react";
 import { Footer } from "../../components/Footer";
-import { Button } from "../../components/ui/button";
+import { Drawer } from "../../components/Drawer";
 
 interface Pet {
   id: string;
@@ -33,7 +33,12 @@ export function MyPets() {
       const pets = content.map((item: Pet) => ({
         id: item.id,
         name: item.name,
-        gender: item.gender === 1 ? "Macho" : item.gender === 0 ? "Desconhecido" : "Fêmea",
+        gender:
+          item.gender === 1
+            ? "Macho"
+            : item.gender === 0
+            ? "Desconhecido"
+            : "Fêmea",
         weight: Number(item.weight),
         age: item.age,
         race: item.race,
@@ -69,34 +74,29 @@ export function MyPets() {
   };
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <HeaderFeed />
-      <div className="w-full bg-gradient-to-r from-primary to-blue-500 flex flex-col justify-center items-center rounded-3xl shadow-2xl">
+      <div className="w-full bg-gradient-to-r from-primary to-blue-500 flex flex-col justify-center items-center rounded-3xl shadow-2xl flex-grow relative">
         <div className="grid w-full">
           <div className="flex flex-col justify-center items-center p-4">
             <p className="font-semibold text-5xl mb-6">Meus Pets</p>
-            <p className="">Clique no seu pet para ver mais informações</p>
+            <p>Clique no seu pet para ver mais informações</p>
           </div>
-          <div className="md:flex grid ml-[35px] p-2 gap-5 mb-5 md:ml-[115px]">
+          <div className="md:flex grid p-5 gap-5 mb-3 md:justify-center">
             <select
-              className="border-2 rounded-2xl border-white bg-white p-2 mt-4 text-lg md:w-[27%] text-center w-[90%]"
+              className="border-2 rounded-2xl p-1 mt-4 text-lg md:w-[17%] text-center w-full"
               value={sort}
               onChange={handleSortChange}
             >
-              <option value="" disabled selected hidden>
-                Selecione
-              </option>
-              <option value="lastAccess">Último acesso</option>
+              <option value="">Selecione</option>
               <option value="specie">Espécie</option>
               <option value="petName">Ordem alfabética</option>
             </select>
-            <div>
-              <Button className="border-2 rounded-2xl border-white bg-white p-2 mt-4 hover:bg-black hover:text-white h-[80%] w-[90%] md:w-[100%]">
-                <p className="text-lg">Cadastrar novo pet</p>
-              </Button>
+            <div className="flex justify-end">
+              <Drawer />
             </div>
           </div>
-          <div className=" bg-gradient-to-r from-primary to-[#cce7f6]rounded-2xl md:h-[70vh] p-2 w-[80%] md:ml-[120px] ml-[40px] border-2">
+          <div className="rounded-2xl md:h-[70vh] p-2 w-[80%] md:ml-[120px] ml-[40px]">
             <div className="p-2 grid grid-cols-1 md:grid-cols-2 w-full md:h-[500px]">
               {loading && <LoaderCircle className="animate-spin size-10" />}
               {petList?.map((item: Pet) => (
@@ -107,12 +107,12 @@ export function MyPets() {
                   <div
                     className="w-full h-full absolute top-0 left-0 bg-cover bg-center opacity-20 rounded-xl"
                     style={{
-                      backgroundImage: `url(https://media.discordapp.net/attachments/1111489625232515115/1247927718897647627/3C2C9005-A507-4ADD-BEA7-ADFE807822A3.jpg?ex=66632041&is=6661cec1&hm=9151650d699ecc02a2a8df327b9b7f890b1d91fd98ed7fc90971941da99d1d0f&=&format=webp&width=1357&height=1169)`,
+                      backgroundImage: `url(https://img.freepik.com/free-photo/lovely-pet-portrait-isolated_23-2149192357.jpg?t=st=1726190540~exp=1726194140~hmac=c81a1f3e0a410c388bd47324b652b1feb796ded645b151844196555a149d363b&w=1380)`,
                     }}
                   ></div>
                   <div className="relative w-[170px] h-[170px] bg-gray-200 rounded-3xl mb-2 mt-10 md:mt-10">
                     <img
-                      src={`https://media.discordapp.net/attachments/1111489625232515115/1247927718897647627/3C2C9005-A507-4ADD-BEA7-ADFE807822A3.jpg?ex=66632041&is=6661cec1&hm=9151650d699ecc02a2a8df327b9b7f890b1d91fd98ed7fc90971941da99d1d0f&=&format=webp&width=1357&height=1169`}
+                      src={`https://img.freepik.com/free-photo/lovely-pet-portrait-isolated_23-2149192357.jpg?t=st=1726190540~exp=1726194140~hmac=c81a1f3e0a410c388bd47324b652b1feb796ded645b151844196555a149d363b&w=1380`}
                       alt={item.name}
                       className="w-full h-full object-cover rounded-3xl"
                     />
@@ -130,26 +130,26 @@ export function MyPets() {
               ))}
             </div>
           </div>
+        </div>
 
-          <div className="flex justify-between p-2 md:mt-5">
-            <button
-              className="border-2 rounded-2xl border-white bg-white/70 p-2 cursor-pointer hover:bg-black hover:text-white"
-              onClick={handlePreviousPage}
-              disabled={page === 0}
-            >
-              <ChevronLeft />
-            </button>
-            <button
-              className="border-2 rounded-2xl border-white bg-white/70 p-2 cursor-pointer hover:bg-black hover:text-white"
-              onClick={handleNextPage}
-              disabled={page >= totalPages - 1}
-            >
-              <ChevronRight />
-            </button>
-          </div>
+        <div className="absolute inset-x-0 bottom-1/2 transform translate-y-10 flex justify-between px-10">
+          <button
+            className="border-2 rounded-2xl border-white bg-white/70 p-2 cursor-pointer hover:bg-black hover:text-white"
+            onClick={handlePreviousPage}
+            disabled={page === 0}
+          >
+            <ChevronLeft />
+          </button>
+          <button
+            className="border-2 rounded-2xl border-white bg-white/70 p-2 cursor-pointer hover:bg-black hover:text-white"
+            onClick={handleNextPage}
+            disabled={page >= totalPages - 1}
+          >
+            <ChevronRight />
+          </button>
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }

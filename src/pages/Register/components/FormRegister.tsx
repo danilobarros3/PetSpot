@@ -23,10 +23,16 @@ import {
 export function FormRegister() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
   const handleFormRegisterSubmit = async (values: IRegisterInfo) => {
     setLoading(true);
     try {
-      const { data } = await api.post("/register", values);
+      const formattedValues = {
+        ...values,
+        birthday: formatDate(values.birthday),
+      };
+
+      const { data } = await api.post("/register", formattedValues);
       toast.success(data.message);
       setTimeout(() => {
         navigate("/login");
@@ -38,6 +44,12 @@ export function FormRegister() {
       setLoading(false);
     }
   };
+
+
+  function formatDate(dateString: string): string {
+    const [year, month, day] = dateString.split("-");
+    return `${day}-${month}-${year}`;
+  }
 
   return (
     <Formik

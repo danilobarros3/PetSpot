@@ -1,9 +1,6 @@
 import imageHome from "../../assets/imageHome.png";
 import service1 from "../../assets/service1.png";
 import imageDanilo from "../../assets/imageDanilo.jpeg";
-import imageAnrry from "../../assets/imageAnrry.jpeg";
-import imageBruno from "../../assets/imageBruno.jpeg";
-import imageJeser from "../../assets/imageJeser.jpeg";
 import imageLincoln from "../../assets/imageLincoln.jpeg";
 import { Header } from "../../components/Header";
 import {
@@ -122,6 +119,7 @@ export function Home() {
                   </p>
                 </div>
               </CarouselItem>
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3"></CarouselItem>
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <img src={imageLincoln} alt="" className="rounded-t-3xl" />
                 <div className="bg-white p-2">
@@ -133,42 +131,9 @@ export function Home() {
                   </p>
                 </div>
               </CarouselItem>
-              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <img src={imageAnrry} alt="" className="rounded-t-3xl" />
-                <div className="bg-white p-2">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Reiciendis eveniet, architecto dolores eaque dolor laborum
-                    voluptate officia repellendus nobis sed accusamus maiores
-                    magnam, officiis repellat omnis eos, enim quod ea.
-                  </p>
-                </div>
-              </CarouselItem>
-              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <img src={imageBruno} alt="" className="rounded-t-3xl" />
-                <div className="bg-white p-2">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Reiciendis eveniet, architecto dolores eaque dolor laborum
-                    voluptate officia repellendus nobis sed accusamus maiores
-                    magnam, officiis repellat omnis eos, enim quod ea.
-                  </p>
-                </div>
-              </CarouselItem>
-              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <img src={imageJeser} alt="" className="rounded-t-3xl" />
-                <div className="bg-white p-2">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Reiciendis eveniet, architecto dolores eaque dolor laborum
-                    voluptate officia repellendus nobis sed accusamus maiores
-                    magnam, officiis repellat omnis eos, enim quod ea.
-                  </p>
-                </div>
-              </CarouselItem>
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            {/* <CarouselPrevious />
+            <CarouselNext /> */}
           </Carousel>
         </div>
         <div id="contact">
